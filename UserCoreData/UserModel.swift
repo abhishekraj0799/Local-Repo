@@ -2,15 +2,17 @@
 //  UserModel.swift
 //  UserCoreData
 //
-//  Created by Yogesh Patel on 22/04/23.
+//  Created by Abhishek11.Raj on 07/09/2023
 //
 
 import Foundation
 
 struct UserModel {
     let firstName: String
+    
     let lastName: String
-    let email: String
-    let password: String
+    
+    let lastMsg: String
+    
     var imageName: String
 }

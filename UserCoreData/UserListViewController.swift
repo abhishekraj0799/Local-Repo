@@ -2,7 +2,7 @@
 //  UserListViewController.swift
 //  UserCoreData
 //
-//  Created by Yogesh Patel on 22/04/23.
+//  Created by Abhishek11.Raj on 07/09/2023
 //
 
 import UIKit
@@ -53,24 +53,24 @@ extension UserListViewController: UITableViewDataSource {
 
 }
 
-extension UserListViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
-            self.addUpdateUserNavigation(user: self.users[indexPath.row])
-        }
-        update.backgroundColor = .systemIndigo
-
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
-            self.manager.deleteUser(userEntity: self.users[indexPath.row]) // Core Data
-            self.users.remove(at: indexPath.row) // Array
-            self.userTableView.reloadData() // Table Reload karna hai
-        }
-
-        return UISwipeActionsConfiguration(actions: [delete, update])
-    }
-
-}
+//extension UserListViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let update = UIContextualAction(style: .normal, title: "Update") { _, _, _ in
+//            self.addUpdateUserNavigation(user: self.users[indexPath.row])
+//        }
+//        update.backgroundColor = .systemIndigo
+//
+//        let delete = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+//            self.manager.deleteUser(userEntity: self.users[indexPath.row]) // Core Data
+//            self.users.remove(at: indexPath.row) // Array
+//            self.userTableView.reloadData() // Table Reload karna hai
+//        }
+//
+//        return UISwipeActionsConfiguration(actions: [delete, update])
+//    }
+//
+//}
 
 
 

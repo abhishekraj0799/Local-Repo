@@ -2,7 +2,7 @@
 //  DatabaseManager.swift
 //  UserCoreData
 //
-//  Created by Yogesh Patel on 22/04/23.
+//   Created by Abhishek11.Raj on 07/09/2023
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import CoreData
 
 class DatabaseManager {
 
-    private var context: NSManagedObjectContext {
+     var context: NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
 
@@ -27,8 +27,8 @@ class DatabaseManager {
     private func addUpdateUser(userEntity: UserEntity, user: UserModel) {
         userEntity.firstName = user.firstName
         userEntity.lastName = user.lastName
-        userEntity.email = user.email
-        userEntity.password = user.password
+        userEntity.lastMsg = user.lastMsg
+    
         userEntity.imageName = user.imageName
         saveContext()
     }

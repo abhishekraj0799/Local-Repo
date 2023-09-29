@@ -2,7 +2,7 @@
 //  RegisterViewController.swift
 //  UserCoreData
 //
-//  Created by Yogesh Patel on 09/04/23.
+//  Created by Abhishek11.Raj on 07/09/2023
 //
 
 import UIKit
@@ -14,8 +14,9 @@ class RegisterViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
+    
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+   
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -57,8 +58,8 @@ extension RegisterViewController{
             navigationItem.title = "Update User"
             firstNameField.text = user.firstName
             lastNameField.text = user.lastName
-            emailField.text = user.email
-            passwordField.text = user.password
+            emailField.text = user.lastMsg
+          //  passwordField.text = user.password
 
             let imageURL = URL.documentsDirectory.appending(components: user.imageName ?? "").appendingPathExtension("png")
             profileImageView.image = UIImage(contentsOfFile: imageURL.path)
@@ -80,15 +81,15 @@ extension RegisterViewController{
             openAlert(message: "Please enter your last name")
             return
         }
-        guard let email = emailField.text, !email.isEmpty else {
+        guard let lastMsg = emailField.text, !lastMsg.isEmpty else {
             openAlert(message: "Please enter your email address")
             return
         }
 
-        guard let password = passwordField.text, !password.isEmpty else {
-            openAlert(message: "Please enter your password")
-            return
-        }
+//        guard let password = passwordField.text, !password.isEmpty else {
+//            openAlert(message: "Please enter your password")
+//            return
+//        }
 
         if !imageSelectedByUser {
             openAlert(message: "Please choose your profile image.")
@@ -96,16 +97,14 @@ extension RegisterViewController{
         }
 
         if let user {
-            // newUser - Ashish
-            // user(user entity) - store user hai - Yogesh
-            // Yogesh = Ashish
-            // update
+           
 
             let newUser = UserModel(
                 firstName: firstName,
                 lastName: lastName,
-                email: email,
-                password: password,
+                
+                lastMsg:  lastMsg,
+             
                 imageName: user.imageName ?? ""
             )
 
@@ -118,8 +117,8 @@ extension RegisterViewController{
             let newUser = UserModel(
                 firstName: firstName,
                 lastName: lastName,
-                email: email,
-                password: password,
+                lastMsg:  lastMsg,
+              //  password: password,
                 imageName: imageName
             )
 

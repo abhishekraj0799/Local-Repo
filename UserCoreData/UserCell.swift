@@ -2,7 +2,7 @@
 //  UserCell.swift
 //  UserCoreData
 //
-//  Created by Yogesh Patel on 09/05/23.
+//   Created by Abhishek11.Raj on 07/09/2023
 //
 
 import UIKit
@@ -21,7 +21,7 @@ class UserCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
+      //  profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,7 +33,7 @@ class UserCell: UITableViewCell {
     func userConfiguration() {
         guard let user else { return }
         fullNameLabel.text = (user.firstName ?? "") + " " + (user.lastName ?? "") // title
-        emailLabel.text = "Email: \(user.email ?? "")" // subTitle
+        emailLabel.text = "lastMsg: \(user.lastMsg ?? "")" // subTitle
 
         let imageURL = URL.documentsDirectory.appending(components: user.imageName ?? "").appendingPathExtension("png")
         profileImageView.image = UIImage(contentsOfFile: imageURL.path)
